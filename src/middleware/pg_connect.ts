@@ -1,4 +1,4 @@
-import sequelize from "../database/pg_configdev";
+import sequelize from "../database/pg_config";
 
 class Connectpg{
     public syncDatabase=async(): Promise<void> => {

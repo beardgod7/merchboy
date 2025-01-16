@@ -1,5 +1,5 @@
 import { DataTypes, Model, Optional } from 'sequelize';
-import sequelize from '../../../../database/pg_configdev';
+import sequelize from '../../../../database/pg_config';
 import {UserAttributes , UserRole} from './userinterface';
 import {Userhash} from '../../../../utils/bcrypt';
 
