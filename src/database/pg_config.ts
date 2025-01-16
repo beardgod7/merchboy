@@ -10,7 +10,8 @@ class Database {
         dialect: 'postgres',
         dialectOptions: {
           ssl: {
-            rejectUnauthorized: false,
+            require: true, 
+            rejectUnauthorized: false, 
           },
         },
         pool: {
