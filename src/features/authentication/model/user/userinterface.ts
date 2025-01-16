@@ -6,7 +6,7 @@ export enum UserRole {
   export interface IUser extends UserAttributes  {
     id: string;
     email: string;
-    role: UserRole;
+    role: string;
     ProfileComplete: boolean;
     createdAt: Date;
     updatedAt: Date;
@@ -20,7 +20,7 @@ export enum UserRole {
     gender?: string;
     phoneNumber?: number;
     password?: string;
-    role: UserRole;  
+    role: string;  
     ProfileComplete: boolean;
     createdAt: Date;
     updatedAt: Date;

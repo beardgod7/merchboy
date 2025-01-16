@@ -16,9 +16,9 @@ class UserController {
 
   public createUser = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
     try {
-      const { email, password } = req.body;
+      const { email, password ,role} = req.body;
 
-      const user = await this.userService.createUser({ email, password });
+      const user = await this.userService.createUser({ email, password,role});
       if (user) {
         const token = TokenService.generateAuthToken(user);
         

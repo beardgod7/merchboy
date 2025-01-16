@@ -3,7 +3,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const userinterface_1 = require("../model/user/userinterface");
 const Validator_1 = __importDefault(require("../../../utils/Validator"));
 const Sanitizer_1 = __importDefault(require("../../../utils/Sanitizer"));
 const Jwtoken_1 = __importDefault(require("../../../utils/Jwtoken"));
@@ -15,9 +14,10 @@ class UserService {
         this.userModel = userModel;
     }
     async createUser(data) {
-        const { email, password } = data;
+        const { email, password, role } = data;
         const sanitizedEmail = Sanitizer_1.default.sanitizeEmail(email);
         const sanitizedPassword = Sanitizer_1.default.sanitizePassword(password);
+        const sanitizedRole = Sanitizer_1.default.sanitizeRole(role);
         if (!Validator_1.default.isEmailValid(sanitizedEmail)) {
             throw new Errorhandler_1.default('Invalid email address.', 400);
         }
@@ -31,7 +31,7 @@ class UserService {
         const newUser = new this.userModel({
             email: sanitizedEmail,
             password: sanitizedPassword,
-            role: userinterface_1.UserRole.USER,
+            role: sanitizedRole,
             ProfileComplete: false,
             createdAt: new Date(),
             updatedAt: new Date(),

@@ -17,10 +17,12 @@ import IUserService, { CreateUserDTO, googleuserupdateDTO, LoginUserDTO, userupd
     }
   
     async createUser(data: CreateUserDTO): Promise<IUser | null> {
-      const { email, password } = data;
+      const { email, password,role } = data;
   
       const sanitizedEmail = Sanitizer.sanitizeEmail(email);
       const sanitizedPassword = Sanitizer.sanitizePassword(password);
+      const sanitizedRole = Sanitizer.sanitizeRole(role);
+  
   
       if (!Validator.isEmailValid(sanitizedEmail)) {
         throw new ErrorHandler('Invalid email address.',400);
@@ -38,7 +40,7 @@ import IUserService, { CreateUserDTO, googleuserupdateDTO, LoginUserDTO, userupd
       const newUser = new this.userModel({
         email: sanitizedEmail,
         password: sanitizedPassword, 
-         role: UserRole.USER,
+         role: sanitizedRole,
          ProfileComplete:false,
         createdAt: new Date(),
         updatedAt: new Date(),

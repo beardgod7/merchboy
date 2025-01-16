@@ -4,8 +4,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const sequelize_1 = require("sequelize");
-const pg_config_1 = __importDefault(require("../../../../database/pg_config"));
-const userinterface_1 = require("./userinterface");
+const pg_configdev_1 = __importDefault(require("../../../../database/pg_configdev"));
 const bcrypt_1 = require("../../../../utils/bcrypt");
 class User extends sequelize_1.Model {
 }
@@ -41,9 +40,8 @@ User.init({
         allowNull: true,
     },
     role: {
-        type: sequelize_1.DataTypes.ENUM(userinterface_1.UserRole.USER, userinterface_1.UserRole.SELLER),
+        type: sequelize_1.DataTypes.STRING,
         allowNull: false,
-        defaultValue: userinterface_1.UserRole.USER, // Set default role to 'user'
     },
     ProfileComplete: {
         type: sequelize_1.DataTypes.BOOLEAN,
@@ -58,7 +56,7 @@ User.init({
         defaultValue: sequelize_1.DataTypes.NOW,
     },
 }, {
-    sequelize: pg_config_1.default,
+    sequelize: pg_configdev_1.default,
     tableName: 'users',
     hooks: {
         beforeCreate: async (user) => {

@@ -1,5 +1,5 @@
 import { DataTypes, Model, Optional } from 'sequelize';
-import sequelize from '../../../../database/pg_config';
+import sequelize from '../../../../database/pg_configdev';
 import {UserAttributes , UserRole} from './userinterface';
 import {Userhash} from '../../../../utils/bcrypt';
 
@@ -16,7 +16,7 @@ class User extends Model<UserAttributes, UserCreationAttributes> implements User
   public gender?: string;
   public phoneNumber?: number;
   public password?: string;
-  public role!: UserRole;  // Use the UserRole enum here
+  public role!: UserRole;  
   public createdAt!: Date;
   public updatedAt!: Date;
   public ProfileComplete!: boolean;
@@ -55,9 +55,8 @@ User.init({
     allowNull: true,
   },
   role: {
-    type: DataTypes.ENUM(UserRole.USER, UserRole.SELLER),
+    type: DataTypes.STRING,
     allowNull: false,
-    defaultValue: UserRole.USER,  // Set default role to 'user'
   },
   ProfileComplete: {
     type: DataTypes.BOOLEAN,

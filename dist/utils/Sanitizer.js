@@ -13,6 +13,9 @@ class Sanitizer {
     static sanitizeName(firstName) {
         return firstName.trim();
     }
+    static sanitizeRole(role) {
+        return role.trim();
+    }
     static sanitizeGender(Gender) {
         return Gender.trim();
     }

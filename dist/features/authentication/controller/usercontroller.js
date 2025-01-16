@@ -10,8 +10,8 @@ class UserController {
     constructor(userService) {
         this.createUser = async (req, res, next) => {
             try {
-                const { email, password } = req.body;
-                const user = await this.userService.createUser({ email, password });
+                const { email, password, role } = req.body;
+                const user = await this.userService.createUser({ email, password, role });
                 if (user) {
                     const token = Jwtoken_1.default.generateAuthToken(user);
                     usertoken_1.default.sendToken(user, 201, res);
