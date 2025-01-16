@@ -8,9 +8,9 @@
     "dev": "nodemon dist/server.js",
     "build": "tsc"
   },
-  "engines": {
-    "node": "20.x"
-  },
+ "engines": {
+  "node": ">=20.x <23.x"
+},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/beardgod7/nurse.git"
