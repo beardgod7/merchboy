@@ -1,6 +1,5 @@
 import express, { Application, Request, Response, NextFunction } from 'express';
 import session from 'express-session';
-// import passport from 'passport';
 import UserRouter from '../features/authentication/routes/route' 
 import ErrorHandler from '../utils/Errorhandler';
 import connect_pg from '../middleware/pg_connect' 
@@ -36,8 +35,7 @@ class App {
         secure: process.env.NODE_ENV === 'production',
       }
     }));
-    // this.app.use(passport.initialize());
-    // this.app.use(passport.session());
+    
     
   }
   private initializeRoutes(): void {

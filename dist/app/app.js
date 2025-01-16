@@ -5,7 +5,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const express_session_1 = __importDefault(require("express-session"));
-// import passport from 'passport';
 const route_1 = __importDefault(require("../features/authentication/routes/route"));
 const pg_connect_1 = __importDefault(require("../middleware/pg_connect"));
 const cookie_parser_1 = __importDefault(require("cookie-parser"));
@@ -35,8 +34,6 @@ class App {
                 secure: process.env.NODE_ENV === 'production',
             }
         }));
-        // this.app.use(passport.initialize());
-        // this.app.use(passport.session());
     }
     initializeRoutes() {
         this.app.use('/api', route_1.default);
