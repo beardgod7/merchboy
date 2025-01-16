@@ -1,5 +1,5 @@
 {
-  "name": "nurse-app",
+  "name": "merchy-app",
   "version": "1.0.0",
   "description": "nursing service locator",
   "main": "server.js",
@@ -7,6 +7,9 @@
     "start": "node dist/server.js",
     "dev": "nodemon dist/server.js",
     "build": "tsc"
+  },
+  "engines": {
+    "node": "18.x"
   },
   "repository": {
     "type": "git",
@@ -60,3 +63,4 @@
     "@types/sequelize": "^4.28.20"
   }
 }
+
